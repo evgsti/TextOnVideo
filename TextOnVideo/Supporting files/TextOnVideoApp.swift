@@ -12,6 +12,10 @@ struct TextOnVideoApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .onDisappear {
+                    // Очищаем при закрытии
+                    FileManager.default.clearTemporaryDirectory()
+                }
         }
     }
 }
